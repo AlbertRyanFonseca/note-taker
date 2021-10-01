@@ -4,6 +4,9 @@ const fs = require('fs');
 function retrieveNotes() {
     let noteData = fs.readFileSync('./db/db.json');
     let note = JSON.parse(noteData);
+    for (let i = 0; i < note.length; i++) {
+        note[i].id = "" + i;
+    }
 
     return note;
 }
