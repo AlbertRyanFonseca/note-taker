@@ -1,3 +1,4 @@
+const path = require('path');
 const fs = require('fs');
 var noteInfo = retrieveNotes();
 
@@ -28,16 +29,4 @@ module.exports = (app) => {
         res.json(true);
     });
 
-    app.delete("/api/notes/:id", (req, res) => {
-        const deleteID = req.params.id;
-
-        let selectedNote = noteInfo.filter(selectedNote => {
-            return selectedNote.id === deleteID;
-        })[0];
-
-        const indexID = noteInfo.indexOf(selectedNote);
-        noteInfo.splice(indexID, 1);
-
-        fs.writeFileSync("./db/db.json", JSON.stringify(noteInfo));
-    })
 };
