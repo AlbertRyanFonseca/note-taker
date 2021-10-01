@@ -1,5 +1,5 @@
-const path = require('path');
 const fs = require('fs');
+const noteData = require('../db/db.json');
 var noteInfo = retrieveNotes();
 
 function retrieveNotes() {
@@ -21,12 +21,13 @@ module.exports = (app) => {
     app.get("api/notes", (req, res) => {
         noteInfo.push(req.body);
         res.json(true);
-    })
+    });
 
     app.post("/api/notes", (req, res) => {
         noteInfo.push(req.body);
         fs.writeFileSync("./db/db.json", JSON.stringify(noteInfo));
         res.json(true);
-    })
+    });
 
+    app.delete("/api/notes/:id")
 };
