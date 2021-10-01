@@ -37,3 +37,6 @@ Created by Albert Fonseca. Starter code: https://github.com/coding-boot-camp/min
 ## Page
 
 https://enigmatic-tor-10465.herokuapp.com/
+
+![Note Taker](https://user-images.githubusercontent.com/82438047/135561008-5dad1bc9-89d0-4af4-8e3c-7fbdbdfa3e1f.gif)
+
