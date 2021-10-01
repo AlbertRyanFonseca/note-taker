@@ -7,3 +7,19 @@ function retrieveNotes() {
 
     return note;
 }
+
+module.exports = (app) => {
+    app.get("/api/notes", (req, res) => {
+        noteInfo = retrieveNotes();
+        res.json(noteInfo);
+        noteInfo.push(req.body);
+        res.json(true);
+    });
+
+    app.post("/api/notes", (req, res) => {
+        noteInfo.push(req.body);
+        fs.writeFileSync("./db/db.json", JSON.stringify(noteInfo));
+        res.json(true);
+    })
+
+};
